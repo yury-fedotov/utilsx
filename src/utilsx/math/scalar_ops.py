@@ -1,5 +1,10 @@
 """Simple operations on scalars - individual values."""
 
+__all__ = [
+    "double",
+    "halve",
+]
+
 
 def halve(x: float) -> float:
     """Divide a number by two. In other words, get its half."""

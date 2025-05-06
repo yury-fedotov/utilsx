@@ -4,6 +4,11 @@ import math
 from collections.abc import Collection, Sequence
 from typing import Literal
 
+__all__ = [
+    "check_values_add_up_to_one",
+    "normalize",
+]
+
 
 def check_values_add_up_to_one(
     values: Collection[float],
