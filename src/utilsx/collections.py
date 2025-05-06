@@ -2,11 +2,12 @@
 
 from collections import Counter
 from collections.abc import Iterable, Sequence, Sized
+from typing import Any
 
 from .typevars import T
 
 
-def is_sequence_of_equal_elements(sequence: Sequence) -> bool:
+def is_sequence_of_equal_elements(sequence: Sequence[Any]) -> bool:
     """Check whether all elements in a sequence are equal to each other."""
     return all(element == sequence[0] for element in sequence)
 

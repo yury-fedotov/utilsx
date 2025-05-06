@@ -1,4 +1,4 @@
-from collections.abc import Sequence, Iterable, Sized
+from collections.abc import Iterable, Sequence, Sized
 from typing import Any
 
 import pytest

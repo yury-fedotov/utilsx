@@ -1,5 +1,3 @@
-"""Tests for math functions."""
-
 from collections.abc import Sequence
 
 import pytest
