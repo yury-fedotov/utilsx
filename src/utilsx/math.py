@@ -70,9 +70,9 @@ def check_values_add_up_to_one(
     )
 
 
-def normalize(values: Sequence[float]) -> tuple[float, ...]:
+def normalize(values: Sequence[float]) -> list[float]:
     """Normalize a sequence of numbers to make them add up to one."""
-    return tuple(value / sum(values) for value in values)
+    return [value / sum(values) for value in values]
 
 
 def safe_divide(numerator: float, denominator: float, fallback: float = 0) -> float:

@@ -39,6 +39,10 @@ select = [
 "*__init__.py" = [
     "F403", # Allow wildcard imports in init files
 ]
+"tests/*" = [
+    "S101", # Allow assertions in tests
+    "D103", # Allow tests without docstrings
+]
 
 [lint.isort]
 known-first-party = ["utilsx"]
