@@ -1,13 +1,14 @@
 """Utilities for raising exceptions."""
 
 from collections.abc import Collection, Iterable
-from typing import NoReturn
 from difflib import get_close_matches
+from typing import NoReturn
 
 __all__ = [
-    "raise_key_error_with_suggestions",
     "prohibit_negative_values",
+    "raise_key_error_with_suggestions",
 ]
+
 
 def raise_key_error_with_suggestions(
     attempted_key: str,
