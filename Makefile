@@ -21,3 +21,7 @@ all-checks:
 	pre-commit run --all-files
 	make type-checking
 	make unit-tests
+
+# Serve documentation website locally
+serve-docs:
+	mkdocs serve

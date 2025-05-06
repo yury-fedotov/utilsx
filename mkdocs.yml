@@ -1,0 +1,16 @@
+site_name: UtilsX
+
+theme:
+  name: material
+
+plugins:
+  - search
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          paths: [src]
+          options:
+            show_root_toc_entry: true
+            show_submodules: true
+            merge_init_into_class: true
