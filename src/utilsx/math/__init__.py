@@ -1,7 +1,7 @@
 """Utilities for mathematical operations."""
 
-from .collections import *
-from .division import *
-from .downscaling import *
-from .rounding import *
-from .scalar_ops import *
+from ._collections import *
+from ._division import *
+from ._downscaling import *
+from ._rounding import *
+from ._scalar_ops import *
