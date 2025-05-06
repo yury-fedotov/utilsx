@@ -15,7 +15,7 @@ type-checking:
 unit-tests:
 	pytest .
 
-# Run all continuous integration checks, including absolutely all unit tests
+# Run all code quality checks: static and dynamic tests
 all-checks:
 	make check-spelling
 	pre-commit run --all-files
