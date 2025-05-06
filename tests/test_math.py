@@ -1,8 +1,9 @@
-from collections.abc import Sequence
+from collections.abc import Collection, Sequence
+from typing import Literal
 
 import pytest
 
-from utilsx import ceil_to_multiple, double, halve, normalize
+from utilsx import ceil_to_multiple, check_values_add_up_to_one, double, halve, normalize
 
 
 @pytest.mark.parametrize(
@@ -69,3 +70,42 @@ def test_normalize(input_: Sequence[float], expected_output: list[float]) -> Non
 )
 def test_ceil_to_multiple(x: float, multiple: int, expected: int) -> None:
     assert ceil_to_multiple(x, multiple) == expected
+
+
+@pytest.mark.parametrize(
+    ("values", "mode", "expected"),
+    (
+        # Fractions mode
+        ([0.5, 0.5], "fractions", True),
+        ([1.0], "fractions", True),
+        ([0.333, 0.333, 0.334], "fractions", True),
+        ([0.9, 0.05], "fractions", False),
+        ([100], "fractions", False),
+        # Percentages mode
+        ([50, 50], "percentages", True),
+        ([99.9, 0.1], "percentages", True),
+        ([101], "percentages", False),
+        ([1], "percentages", False),
+        # Either mode
+        ([1], "either", True),
+        ([100], "either", True),
+        ([0.5, 0.5], "either", True),
+        ([50, 50], "either", True),
+        ([0.1, 0.2, 0.3], "either", False),
+        # Edge cases
+        ([], "fractions", False),
+        ([0, 0, 0], "percentages", False),
+        ([1e-10, 1e-10], "fractions", False),
+        ([33.3, 33.3, 33.4], "percentages", True),
+        # Various collection types
+        ((0.5, 0.5), "fractions", True),
+        ({0.2, 0.8}, "fractions", True),
+        (frozenset((0.2, 0.8)), "fractions", True),
+    ),
+)
+def test_check_values_add_up_to_one(
+    values: Collection[float],
+    mode: Literal["fractions", "percentages", "either"],
+    expected: bool,
+) -> None:
+    assert check_values_add_up_to_one(values, mode) is expected
