@@ -1,4 +1,5 @@
 """Physical conversions and ratios."""
+
 from typing import Final
 
 LITER_TO_GAL: Final = 0.264172

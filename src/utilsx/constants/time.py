@@ -5,6 +5,7 @@ Arrange them in the file as follows:
     2. Within groups, go from largest to smallest unit,
         e.g. ``MINUTES_IN_HOUR`` go before ``SECONDS_IN_HOUR``.
 """
+
 from typing import Final
 
 SECONDS_IN_MINUTE: Final = 60
