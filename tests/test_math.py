@@ -2,7 +2,43 @@ from collections.abc import Sequence
 
 import pytest
 
-from utilsx import ceil_to_multiple, normalize
+from utilsx import ceil_to_multiple, double, halve, normalize
+
+
+@pytest.mark.parametrize(
+    ("x", "expected"),
+    (
+        (10, 5),
+        (3, 1.5),
+        (0, 0),
+        (-8, -4),
+        (-3.6, -1.8),
+        (7.5, 3.75),
+        (1, 0.5),
+        (-1, -0.5),
+        (1000000, 500000),
+    ),
+)
+def test_halve(x: float, expected: float) -> None:
+    assert halve(x) == expected
+
+
+@pytest.mark.parametrize(
+    ("x", "expected"),
+    (
+        (10, 20),
+        (3, 6),
+        (0, 0),
+        (-8, -16),
+        (-3.6, -7.2),
+        (7.5, 15),
+        (1, 2),
+        (-1, -2),
+        (1000000, 2000000),
+    ),
+)
+def test_double(x: float, expected: float) -> None:
+    assert double(x) == expected
 
 
 @pytest.mark.parametrize(
