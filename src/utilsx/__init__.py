@@ -3,3 +3,4 @@
 from .charts import *
 from .constants import *
 from .exceptions import *
+from .math import *
