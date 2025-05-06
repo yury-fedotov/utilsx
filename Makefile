@@ -25,3 +25,7 @@ all-checks:
 # Serve documentation website locally
 serve-docs:
 	mkdocs serve
+
+# Count lines of code in the project and get output in the command line
+count-lines:
+	uv run lines_counter.py
