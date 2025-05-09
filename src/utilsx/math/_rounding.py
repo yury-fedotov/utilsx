@@ -14,7 +14,7 @@ def ceil_to_multiple(x: float, multiple: int) -> int:
         x: Number to ceil.
         multiple: Enforce the output to be a multiple of.
 
-    Return:
+    Returns:
         X input ceiled to the next multiple of another value.
     """
     return math.ceil(x / multiple) * multiple

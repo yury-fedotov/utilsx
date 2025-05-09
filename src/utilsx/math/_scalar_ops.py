@@ -25,6 +25,6 @@ def double(x: float) -> float:
         x: The number to multiply by two.
 
     Returns:
-        Result multiplying this number by literal integer two.
+        Result of multiplying this number by literal integer two.
     """
     return x * 2
