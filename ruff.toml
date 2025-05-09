@@ -37,6 +37,7 @@ select = [
 
 [lint.per-file-ignores]
 "*__init__.py" = [
+    "F401", # Allow unused imports in init files
     "F403", # Allow wildcard imports in init files
 ]
 "tests/*" = [
