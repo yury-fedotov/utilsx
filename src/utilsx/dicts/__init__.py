@@ -1,6 +1,6 @@
 """Utilities for working with dictionaries."""
 
-from .combination import *
-from .filtering import *
-from .modification import *
-from .sorting import *
+from ._combination import *
+from ._filtering import *
+from ._modification import *
+from ._sorting import *
