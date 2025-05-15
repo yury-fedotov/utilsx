@@ -40,4 +40,45 @@ revenue_trillions = revenue / BILLION
 
 ## Physics
 
+UtilsX provides a few constants representing common mass and volume ratios.
+
+Similar to numeric constraints, this set fights against duplicated magic numbers in codebases.
+
+But in addition to that, inconsistency here directly makes calculations imprecise:
+
+``` py title="bad_practice.py" hl_lines="3 7"
+# Work of one developer
+production_kg = 500
+production_lbs = production_kg * 2.205
+
+# Work of another developer
+consumption_lbs = 1000
+consumption_kg = consumption_lbs * (1 / 2.20462)
+```
+
+Clearly, a conversion ratio should not be `2.205` in one part of the codebase, and `2.20462` in another.
+
+Do this instead:
+
+``` py title="good_practice.py"
+from utilsx import LBS_IN_KG, KG_IN_LBS
+
+# Work of one developer
+production_kg = 500
+production_lbs = production_kg * LBS_IN_KG
+
+# Work of another developer
+consumption_lbs = 1000
+consumption_kg = consumption_lbs * KG_IN_LBS
+```
+
+You may alternatively use [SciPy's `constants` module](https://docs.scipy.org/doc/scipy/reference/constants.html#).
+In fact, for deep scientific projects, likely it would be more suitable.
+
+UtilsX, however:
+
+- More lightweight: does not bring whole SciPy (and NumPy as its transitive dependency) to your venv.
+- Uses more explicit names: e.g., `KG_IN_LBS` vs `pound` in SciPy.
+- Defines constants missing in SciPy: like `OZ_IN_GAL`, while SciPy only provides gallon-to-cubic-meter ratios.
+
 ## Time
