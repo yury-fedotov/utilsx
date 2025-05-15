@@ -30,7 +30,7 @@ Do instead:
 from utilsx import BILLION
 
 revenue = 2819920021
-revenue_trillions = revenue / BILLION
+revenue_billions = revenue / BILLION
 ```
 
 !!! tip "Constants like `pi`, `e` are available in built-in `math` module"
