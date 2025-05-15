@@ -82,3 +82,29 @@ UtilsX, however:
 - Defines constants missing in SciPy: like `OZ_IN_GAL`, while SciPy only provides gallon-to-cubic-meter ratios.
 
 ## Time
+
+Constants like:
+
+- `SECONDS_IN_MINUTE`
+- `MINUTES_IN_DAY`
+- `HOURS_IN_YEAR`
+- ... and others, following the same naming semantics
+
+While the [numeric](#numbers) constants mostly help prevent typos,
+and [physics](#physics) ones help achieve precision and consistency,
+the biggest benefit of the **time** group is readability.
+
+Consider:
+
+``` py title="bad_practice.py"
+# What does this conversion do: hours to minutes or minutes to seconds?
+data["revenue"] /= 60
+```
+
+Do instead:
+
+``` py title="good_practice.py"
+from utilsx import MINUTES_IN_HOUR
+
+data["revenue"] /= MINUTES_IN_HOUR
+```
