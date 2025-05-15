@@ -1,10 +1,19 @@
 [project]
 name = "utilsx"
 version = "0.0.1"
-description = "Generic utilities for Python projects"
+authors = [
+  { name="Yury Fedotov", email="author@example.com" },
+]
+description = "A collection of useful constants and generic functions for Python"
 readme = "README.md"
 requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
 dependencies = []
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
 
 [build-system]
 requires = ["hatchling"]
