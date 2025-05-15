@@ -1,6 +1,6 @@
 [project]
 name = "utilsx"
-version = "0.0.1"
+version = "0.0.0a1"
 authors = [
   { name="Yury Fedotov", email="author@example.com" },
 ]

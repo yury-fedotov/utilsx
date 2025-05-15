@@ -746,7 +746,7 @@ wheels = [
 
 [[package]]
 name = "utilsx"
-version = "0.0.1"
+version = "0.0.0a1"
 source = { editable = "." }
 
 [package.dev-dependencies]
