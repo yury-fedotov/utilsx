@@ -105,6 +105,8 @@ _COMPONENTS = (
             "mypy.ini",
             "pyproject.toml",
             "ruff.toml",
+            ".vale.ini",
+            "./.vale/styles/config/**/*.*",
         ),
     ),
 )
