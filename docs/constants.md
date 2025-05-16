@@ -6,6 +6,10 @@ A module with common real-world constants.
 
 Commonly used literal numbers:
 
+- `ONE`
+- `TWO`
+- `TEN`
+- `HUNDRED`
 - `THOUSAND`
 - `MILLION`
 - `BILLION`
@@ -94,7 +98,7 @@ While the [numeric](#numbers) constants mostly help prevent typos,
 and [physics](#physics) ones help achieve precision and consistency,
 the biggest benefit of the **time** group is readability.
 
-Consider:
+Example:
 
 ``` py title="bad_practice.py"
 # What does this conversion do: hours to minutes or minutes to seconds?
