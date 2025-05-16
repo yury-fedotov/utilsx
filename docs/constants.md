@@ -37,7 +37,7 @@ revenue = 2819920021
 revenue_billions = revenue / BILLION
 ```
 
-!!! tip "Constants like `pi`, `e` are available in built-in `math` module"
+!!! tip "The built-in `math` module provides constants like `pi` and `e`"
 
     See full list [here](https://docs.python.org/3/library/math.html#constants).
     UtilsX does not re-define them, and encourages you to import them from `math`.
@@ -50,9 +50,9 @@ UtilsX provides a few constants representing common mass and volume ratios:
 - `GAL_TO_OZ` and `OZ_TO_GAL`
 - `LBS_TO_KG` and `KG_TO_LBS`
 
-Similar to numeric constraints, this set fights against duplicated magic numbers in codebases.
+Like numeric constraints, this set fights against duplicated magic numbers in codebases.
 
-But in addition to that, inconsistency here directly makes calculations imprecise:
+Moreover, inconsistency here directly makes calculations imprecise:
 
 ``` py title="bad_practice.py" hl_lines="3 7"
 # Work of one developer
@@ -64,7 +64,7 @@ consumption_lbs = 1000
 consumption_kg = consumption_lbs * (1 / 2.20462)
 ```
 
-Clearly, a conversion ratio should not be `2.205` in one part of the codebase, and `2.20462` in another.
+A conversion ratio shouldn't appear as `2.205` in one part of the codebase, and `2.20462` in another.
 
 Do instead:
 
@@ -80,7 +80,7 @@ consumption_lbs = 1000
 consumption_kg = consumption_lbs * LBS_TO_KG
 ```
 
-!!! note "You may alternatively use [SciPy's `constants` module](https://docs.scipy.org/doc/scipy/reference/constants.html#)"
+!!! note "You may also use [SciPy's `constants` module](https://docs.scipy.org/doc/scipy/reference/constants.html#)"
 
     For deep scientific projects, likely it would be more suitable.
 
@@ -92,10 +92,10 @@ consumption_kg = consumption_lbs * LBS_TO_KG
 
 For unit conversion ratios, UtilsX follows the following naming convention:
 
-> Constants are called `A_TO_B`, such that a value in units `A`
+> Constants follow the `A_TO_B` naming convention, such that a value in units `A`
 > **multiplied** by `A_TO_B` becomes the same amount in units `B`.
 
-!!! info "Why was this convention selected?"
+!!! info "Why this convention?"
 
     In early versions, for instance, `KG_TO_LBS` was called `LBS_IN_KG`.
 
@@ -116,11 +116,11 @@ Constants like:
 - `HOURS_IN_YEAR`
 
 And tens more of the same nature, following the naming semantics `A_IN_B`.
-Read them as _"How many units of `A` are in one unit of `B`"_.
+Read them as _"How many units of `A` make up one unit of `B`"_.
 
-While the [numeric](#numbers) constants mostly help prevent typos,
+While the [numeric](#numbers) constants help prevent typos,
 and [physics](#physics) ones help achieve precision and consistency,
-the biggest benefit of the **time** group is readability.
+the **time** improves readability more than anything else.
 
 Example:
 
