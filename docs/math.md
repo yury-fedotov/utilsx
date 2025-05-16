@@ -23,4 +23,18 @@ check_values_add_up_to_one(recipe.values())
 ```
 
 By default, it returns `True` if values add up either to 1 or 100.
-This behavior can be controlled via the `mode` argument.
+You can control this behavior using the `mode` argument.
+
+### [`normalize`][utilsx.normalize]
+
+Helps you scale a sequence of numbers to add up to one, while keeping original relations.
+
+```py title="portfolio.py" hl_lines="1 5"
+from utilsx import normalize
+
+holdings_usd = [300, 50, 120]
+
+holdings_proportions = normalize(holdings_usd)
+print(holdings_proportions)
+# [0.6383, 0.1064, 0.2553]
+```
