@@ -130,7 +130,7 @@ print(product_weights_lb)
 
 Use UtilsX to cleanly express unit conversion:
 
-``` py title="before.py" hl_lines="1 11"
+``` py title="after.py" hl_lines="1 11"
 from utilsx import KG_TO_LBS, multiply_dict_values
 
 # Product weights in kilograms
@@ -145,4 +145,67 @@ product_weights_lb = multiply_dict_values(product_weights_kg, KG_TO_LBS)
 
 print(product_weights_lb)
 # {"coffee_beans": 27.558, "cookies": 6.614, "juice_boxes": 19.290}
+```
+
+### `rename_keys_in_nested_dict`
+
+Consider a scenario where you’re processing a legacy configuration file
+in a deeply nested dictionary format.
+Teams authored this file over many years,
+and some keys have outdated or inconsistent names.
+
+You want to rename `"usr"` and `"pwd"` key names across all levels of nesting to
+`"user"` and `"password"` respectively.
+
+``` py title="config_example.py" hl_lines="3-4 12-13"
+legacy_config = {
+    "db_config": {
+        "usr": "admin",
+        "pwd": "secret",
+        "host": "localhost",
+        "port": 5432,
+    },
+    "log_settings": {
+        "lvl": "INFO",
+        "dir": "/var/log/app",
+        "otel_credentials": {
+            "usr": "otel_admin",
+            "pwd": "otel_password",
+        },
+    },
+}
+```
+
+Use UtilsX to rename those keys at all levels in one line:
+
+``` py title="utilsx_workflow.py" hl_lines="1 5-11 16-17 25-26"
+from utilsx import rename_keys_in_nested_dict
+
+legacy_config = {...}
+
+relevant_config = rename_keys_in_nested_dict(
+    dictionary=legacy_config,
+    renaming={
+        "usr": "user",
+        "pwd": "password",
+    },
+)
+
+print(relevant_config)
+# {
+#     "db_config": {
+#         "user": "admin",
+#         "password": "secret",
+#         "host": "localhost",
+#         "port": 5432,
+#     },
+#     "log_settings": {
+#         "lvl": "INFO",
+#         "dir": "/var/log/app",
+#         "otel_credentials": {
+#             "user": "otel_admin",
+#             "password": "otel_password",
+#         },
+#     },
+# }
 ```
