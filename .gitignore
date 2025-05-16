@@ -173,5 +173,9 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 
-# Vale linter cache
-.vale-styles
+# Vale linter
+.vale/*
+!.vale/styles/
+.vale/styles/*
+!.vale/styles/config/
+!.vale/styles/config/**
