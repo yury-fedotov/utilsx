@@ -3,11 +3,11 @@
 from ..typevars import T
 
 __all__ = [
-    "remove_pairs_with_zero_values",
+    "remove_items_with_zero_values",
 ]
 
 
-def remove_pairs_with_zero_values(dictionary: dict[T, float]) -> dict[T, float]:
+def remove_items_with_zero_values(dictionary: dict[T, float]) -> dict[T, float]:
     """Drop key-value pairs from a dictionary whose values are zero.
 
     Args:
