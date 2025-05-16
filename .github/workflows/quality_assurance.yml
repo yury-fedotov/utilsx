@@ -1,4 +1,4 @@
-name: Code quality assurance
+name: Quality assurance
 
 on:
   push:
