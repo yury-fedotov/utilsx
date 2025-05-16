@@ -44,7 +44,11 @@ revenue_billions = revenue / BILLION
 
 ## Physics
 
-UtilsX provides a few constants representing common mass and volume ratios.
+UtilsX provides a few constants representing common mass and volume ratios:
+
+- `GAL_TO_LITER` and `LITER_TO_GAL`
+- `GAL_TO_OZ` and `OZ_TO_GAL`
+- `LBS_TO_KG` and `KG_TO_LBS`
 
 Similar to numeric constraints, this set fights against duplicated magic numbers in codebases.
 
