@@ -12,5 +12,5 @@ LITER_TO_GAL: Final = 1 / GAL_TO_LITER
 GAL_TO_OZ: Final = 128
 OZ_TO_GAL: Final = 1 / GAL_TO_OZ
 
-KG_TO_LBS: Final = 2.20462
-LBS_TO_KG: Final = 1 / KG_TO_LBS
+LBS_TO_KG: Final = 0.45359237
+KG_TO_LBS: Final = 1 / LBS_TO_KG
