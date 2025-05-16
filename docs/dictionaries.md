@@ -44,3 +44,54 @@ combined_sales = sum_dicts(north_sales, south_sales)
 print(combined_sales)
 # {"coffee": 200, "cookie": 50, "juice": 40, "banana": 10}
 ```
+
+## Filtering
+
+### `remove_items_with_zero_values`
+
+Consider a case where a coffee shop tracks product sales, but some items haven’t sold at all.
+The sales report includes all items, even those with zero sales - which clutters the output
+and may cause confusion in downstream reporting.
+
+``` py title="before.py" hl_lines="11"
+# Sales including items with zero quantity
+sales_report = {
+    "coffee": 200,
+    "cookie": 0,
+    "juice": 40,
+    "banana": 0,
+    "sandwich": 25,
+}
+
+# Filtering using a dictionary comprehension
+cleaned_report = {item: qty for item, qty in sales_report.items() if qty}
+
+print(cleaned_report)
+# {"coffee": 200, "juice": 40, "sandwich": 25}
+```
+
+!!! question "Why avoid this approach?"
+
+    The filtering logic still mixes with business logic — it obscures the intent to simply "clean up the report."
+    Repeating this pattern across different places increases maintenance cost.
+
+Use UtilsX to cleanly filter the sales report:
+
+``` py title="after.py" hl_lines="1 13"
+from utilsx import remove_items_with_zero_values
+
+# Sales including items with zero quantity
+sales_report = {
+    "coffee": 200,
+    "cookie": 0,
+    "juice": 40,
+    "banana": 0,
+    "sandwich": 25,
+}
+
+# Remove zero-value entries using UtilsX
+cleaned_report = remove_items_with_zero_values(sales_report)
+
+print(cleaned_report)
+# {"coffee": 200, "juice": 40, "sandwich": 25}
+```
