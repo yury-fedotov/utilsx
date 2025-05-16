@@ -2,6 +2,11 @@
 check-spelling:
 	codespell
 
+# Run Vale linter over the docs
+vale:
+	vale sync
+	vale docs/
+
 # Run a linter and a code formatter
 lint:
 	ruff check --fix
@@ -17,8 +22,9 @@ unit-tests:
 
 # Run all code quality checks: static and dynamic tests
 all-checks:
-	make check-spelling
 	pre-commit run --all-files
+	make check-spelling
+	make vale
 	make type-checking
 	make unit-tests
 
