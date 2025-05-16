@@ -756,6 +756,7 @@ dev = [
     { name = "pre-commit" },
     { name = "pytest" },
     { name = "ruff" },
+    { name = "vale" },
 ]
 docs = [
     { name = "mkdocs-material" },
@@ -771,10 +772,20 @@ dev = [
     { name = "pre-commit", specifier = "==4.2.0" },
     { name = "pytest", specifier = "~=8.3.5" },
     { name = "ruff", specifier = "==0.11.8" },
+    { name = "vale", specifier = "~=3.11.2" },
 ]
 docs = [
     { name = "mkdocs-material", specifier = "~=9.6.12" },
     { name = "mkdocstrings-python", specifier = "~=1.16.10" },
+]
+
+[[package]]
+name = "vale"
+version = "3.11.2.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/6f/b2/a0667b80bb280bbeb32ddf56c931ae9fe8437395d681d9eba069204d2d8e/vale-3.11.2.0.tar.gz", hash = "sha256:8e5da5bbcae110c184562d631efc808bf04ef2f32e9f2f1e739f8bc6f3b8bb6f", size = 5304, upload-time = "2025-05-05T08:17:42.615Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/34/7e/26b2e4645ff8142c33a57548eac58a6e67b7561f7dd6da20cd17248d5353/vale-3.11.2.0-py3-none-any.whl", hash = "sha256:35e65271d51d5dcf4efe01ec3cbff5a5a6880369848ab5329f08da730d59a8b0", size = 5903, upload-time = "2025-05-05T08:17:41.106Z" },
 ]
 
 [[package]]
