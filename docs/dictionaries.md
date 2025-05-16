@@ -95,3 +95,54 @@ cleaned_report = remove_items_with_zero_values(sales_report)
 print(cleaned_report)
 # {"coffee": 200, "juice": 40, "sandwich": 25}
 ```
+
+## Modification
+
+### `multiply_dict_values`
+
+Consider a scenario where an inventory system stores product weights in kilograms,
+but a downstream system - for example, a shipping provider - requires the same data in pounds.
+
+``` py title="before.py" hl_lines="9-12"
+# Product weights in kilograms
+product_weights_kg = {
+    "coffee_beans": 12.5,
+    "cookies": 3.0,
+    "juice_boxes": 8.75,
+}
+
+# Manual conversion to pounds
+product_weights_lb = {
+    weight_kg * 2.20462
+    for item, weight_kg in product_weights_kg.items()
+}
+
+print(product_weights_lb)
+# {"coffee_beans": 27.558, "cookies": 6.614, "juice_boxes": 19.290}
+```
+
+!!! question "Why avoid this approach?"
+
+    The logic for applying a constant multiplier gets mixed in with the business need — unit conversion.
+    It adds noise and reduces reuse in other places requiring the same transformation.
+
+    Another issue with the code above is a hard-coded `2.20462` ratio.
+
+Use UtilsX to cleanly express unit conversion:
+
+``` py title="before.py" hl_lines="1 11"
+from utilsx import KG_TO_LBS, multiply_dict_values
+
+# Product weights in kilograms
+product_weights_kg = {
+    "coffee_beans": 12.5,
+    "cookies": 3.0,
+    "juice_boxes": 8.75,
+}
+
+# Convert to pounds
+product_weights_lb = multiply_dict_values(product_weights_kg, KG_TO_LBS)
+
+print(product_weights_lb)
+# {"coffee_beans": 27.558, "cookies": 6.614, "juice_boxes": 19.290}
+```
