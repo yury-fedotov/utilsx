@@ -1,5 +1,7 @@
 import re
 
+import pytest
+
 import utilsx.constants._physics as module
 
 
@@ -17,6 +19,9 @@ def test_each_constant_has_reverse() -> None:
             reverse_name = f"{to_unit}_TO_{from_unit}"
             assert reverse_name in available_constant_names, (
                 f"Missing reverse constant {reverse_name}, while {name} is defined"
+            )
+            assert getattr(module, name) == pytest.approx(1 / getattr(module, reverse_name)), (
+                f"{reverse_name} should be the reciprocal of {name}"
             )
         else:
             raise RuntimeError(
