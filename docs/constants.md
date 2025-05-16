@@ -115,8 +115,8 @@ Constants like:
 - `MINUTES_IN_DAY`
 - `HOURS_IN_YEAR`
 
-And more, following the naming semantics `A_IN_B`,
-with values meaning _how many units of `A` are in one unit of `B`_.
+And tens more of the same nature, following the naming semantics `A_IN_B`.
+Read them as _"How many units of `A` are in one unit of `B`"_.
 
 While the [numeric](#numbers) constants mostly help prevent typos,
 and [physics](#physics) ones help achieve precision and consistency,
