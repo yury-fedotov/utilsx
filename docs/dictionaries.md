@@ -209,3 +209,29 @@ print(relevant_config)
 #     },
 # }
 ```
+
+## Sorting
+
+### `sort_by_value`
+
+You can use Python's built-in `sorted` function to sort a dictionary by value,
+but that requires specifying a lambda function.
+
+Because this task occurs frequently, UtilsX offers a shorthand to simplify it:
+
+``` py title="sort_by_value.py" hl_lines="1 11"
+from utilsx import sort_by_value
+
+product_revenue = {
+    "coffee": 2400,
+    "juice": 1200,
+    "cookie": 800,
+    "banana": 1600,
+}
+
+# Sort products by revenue, highest first
+top_selling = sort_by_value(product_revenue, reverse=True)
+
+print(top_selling)
+# {"coffee": 2400, "banana": 1600, "juice": 1200, "cookie": 800}
+```
