@@ -20,13 +20,21 @@ type-checking:
 unit-tests:
 	pytest .
 
-# Run all code quality checks: static and dynamic tests
-all-checks:
-	pre-commit run --all-files
+# Run docs checks: spelling and linting, this can be ran against a single Python version
+docs-checks:
 	make check-spelling
 	make vale
+
+# Run Python checks, in CI this should be ran against all supported Python versions
+python-checks:
+	pre-commit run --all-files
 	make type-checking
 	make unit-tests
+
+# Run all code quality checks: static and dynamic tests
+all-checks:
+	make python-checks
+	make docs-checks
 
 # Serve documentation website locally
 serve-docs:
