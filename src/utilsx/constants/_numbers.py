@@ -2,7 +2,11 @@
 
 from typing import Final
 
-THOUSAND: Final = 1000
-MILLION: Final = THOUSAND**2
-BILLION: Final = THOUSAND**3
-TRILLION: Final = THOUSAND**4
+ONE: Final = 1
+TWO: Final = 2
+TEN: Final = 10
+HUNDRED: Final = TEN**TWO
+THOUSAND: Final = TEN**3
+MILLION: Final = TEN**6
+BILLION: Final = TEN**9
+TRILLION: Final = TEN**12

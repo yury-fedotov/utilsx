@@ -6,6 +6,10 @@ A module with common real-world constants.
 
 Commonly used literal numbers:
 
+- `ONE`
+- `TWO`
+- `TEN`
+- `HUNDRED`
 - `THOUSAND`
 - `MILLION`
 - `BILLION`
@@ -40,7 +44,11 @@ revenue_billions = revenue / BILLION
 
 ## Physics
 
-UtilsX provides a few constants representing common mass and volume ratios.
+UtilsX provides a few constants representing common mass and volume ratios:
+
+- `GAL_TO_LITER` and `LITER_TO_GAL`
+- `GAL_TO_OZ` and `OZ_TO_GAL`
+- `LBS_TO_KG` and `KG_TO_LBS`
 
 Similar to numeric constraints, this set fights against duplicated magic numbers in codebases.
 
@@ -58,28 +66,46 @@ consumption_kg = consumption_lbs * (1 / 2.20462)
 
 Clearly, a conversion ratio should not be `2.205` in one part of the codebase, and `2.20462` in another.
 
-Do this instead:
+Do instead:
 
 ``` py title="good_practice.py"
-from utilsx import LBS_IN_KG, KG_IN_LBS
+from utilsx import KG_TO_LBS, LBS_TO_KG
 
 # Work of one developer
 production_kg = 500
-production_lbs = production_kg * LBS_IN_KG
+production_lbs = production_kg * KG_TO_LBS
 
 # Work of another developer
 consumption_lbs = 1000
-consumption_kg = consumption_lbs * KG_IN_LBS
+consumption_kg = consumption_lbs * LBS_TO_KG
 ```
 
-You may alternatively use [SciPy's `constants` module](https://docs.scipy.org/doc/scipy/reference/constants.html#).
-In fact, for deep scientific projects, likely it would be more suitable.
+!!! note "You may alternatively use [SciPy's `constants` module](https://docs.scipy.org/doc/scipy/reference/constants.html#)"
 
-UtilsX, however:
+    For deep scientific projects, likely it would be more suitable.
 
-- More lightweight: does not bring whole SciPy (and NumPy as its transitive dependency) to your venv.
-- Uses more explicit names: e.g., `KG_IN_LBS` vs `pound` in SciPy.
-- Defines constants missing in SciPy: like `OZ_IN_GAL`, while SciPy only provides gallon-to-cubic-meter ratios.
+    UtilsX, however:
+
+    - Is more lightweight: does not bring whole SciPy (and NumPy as its transitive dependency) to your venv.
+    - Uses more explicit names: e.g., `KG_TO_LBS` vs `pound` in SciPy.
+    - Defines constants missing in SciPy: like `GAL_TO_OZ`, while SciPy only provides gallon-to-cubic-meter ratios.
+
+For unit conversion ratios, UtilsX follows the following naming convention:
+
+> Constants are called `A_TO_B`, such that a value in units `A`
+> **multiplied** by `A_TO_B` becomes the same amount in units `B`.
+
+!!! info "Why was this convention selected?"
+
+    In early versions, for instance, `KG_TO_LBS` was called `LBS_IN_KG`.
+
+    That name is ambiguous because can be interpreted both as:
+
+    - How many lbs is there in 1 kg? (~2.2)
+    - How many kg would it take to represent 1 lbs? (~0.45)
+
+    To avoid that, UtilsX follows the `_TO_` convention, and declares
+    that all such constants should be used as multipliers.
 
 ## Time
 
@@ -88,16 +114,18 @@ Constants like:
 - `SECONDS_IN_MINUTE`
 - `MINUTES_IN_DAY`
 - `HOURS_IN_YEAR`
-- ... and others, following the same naming semantics
+
+And tens more of the same nature, following the naming semantics `A_IN_B`.
+Read them as _"How many units of `A` are in one unit of `B`"_.
 
 While the [numeric](#numbers) constants mostly help prevent typos,
 and [physics](#physics) ones help achieve precision and consistency,
 the biggest benefit of the **time** group is readability.
 
-Consider:
+Example:
 
 ``` py title="bad_practice.py"
-# What does this conversion do: hours to minutes or minutes to seconds?
+# What does this conversion do: hours -> minutes or minutes -> seconds?
 data["revenue"] /= 60
 ```
 
