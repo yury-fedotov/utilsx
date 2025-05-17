@@ -2,7 +2,7 @@
 
 ## Combination
 
-### `sum_dicts`
+### [`sum_dicts`][utilsx.sum_dicts]
 
 Consider an example with two coffee shop locations,
 each reporting sales as a dictionary, with the goal of
@@ -47,7 +47,7 @@ print(combined_sales)
 
 ## Filtering
 
-### `remove_items_with_zero_values`
+### [`remove_items_with_zero_values`][utilsx.remove_items_with_zero_values]
 
 Consider a case where a coffee shop tracks product sales, but some items haven’t sold at all.
 The sales report includes all items, even those with zero sales - which clutters the output
@@ -98,7 +98,7 @@ print(cleaned_report)
 
 ## Modification
 
-### `multiply_dict_values`
+### [`multiply_dict_values`][utilsx.multiply_dict_values]
 
 Consider a scenario where an inventory system stores product weights in kilograms,
 but a downstream system - for example, a shipping provider - requires the same data in pounds.
@@ -147,7 +147,7 @@ print(product_weights_lb)
 # {"coffee_beans": 27.558, "cookies": 6.614, "juice_boxes": 19.290}
 ```
 
-### `rename_keys_in_nested_dict`
+### [`rename_keys_in_nested_dict`][utilsx.rename_keys_in_nested_dict]
 
 Consider a scenario where you’re processing a legacy configuration file
 in a deeply nested dictionary format.
@@ -212,7 +212,7 @@ print(relevant_config)
 
 ## Sorting
 
-### `sort_by_value`
+### [`sort_by_value`][utilsx.sort_by_value]
 
 You can use Python's built-in `sorted` function to sort a dictionary by value,
 but that requires specifying a lambda function.
