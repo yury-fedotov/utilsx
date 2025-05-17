@@ -38,3 +38,35 @@ holdings_proportions = normalize(holdings_usd)
 print(holdings_proportions)
 # [0.6383, 0.1064, 0.2553]
 ```
+
+## Division
+
+### [`safe_divide`][utilsx.safe_divide]
+
+Helps you avoid the `try` / `except ZeroDivisionError` clause when a divisor can potentially be zero.
+
+```py title="return_on_equity.py" hl_lines="1 6"
+from utilsx import safe_divide
+
+profit = 12
+equity = 0
+
+roe = safe_divide(profit, equity)
+print(f"Return on equity: {roe:.0%}")
+# Return on equity: 0%
+```
+
+## Downscaling
+
+### [`convert_number_to_units`][utilsx.convert_number_to_units]
+
+Convert numbers to thousands / millions.
+
+``` py title="downscaling.py" hl_lines="1 4"
+from utilsx import convert_number_to_units
+
+revenue_usd = 132890200
+revenue_musd = convert_number_to_units(revenue_usd, "million")
+print(revenue_musd)
+# 132.8902
+```
