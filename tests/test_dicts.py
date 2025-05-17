@@ -3,7 +3,7 @@ from typing import Any
 
 import pytest
 
-from utilsx import sort_by_value, sum_dicts
+from utilsx import rename_keys_in_nested_dict, sort_by_value, sum_dicts
 
 
 @pytest.mark.parametrize(
@@ -39,3 +39,30 @@ def test_sum_dicts(
     output: dict[Any, float],
 ) -> None:
     assert sum_dicts(*inputs) == output
+
+
+def test_rename_keys_in_nested_dict() -> None:
+    before = {
+        "db_config": {
+            "usr": "admin",
+            "pwd": "secret",
+            "host": "localhost",
+            "port": 5432,
+        },
+        "log_settings": {
+            "lvl": "INFO",
+            "dir": "/var/log/app",
+            "otel_credentials": {
+                "usr": "otel_admin",
+                "pwd": "otel_password",
+            },
+        },
+    }
+    renaming = {
+        "usr": "user",
+        "pwd": "password",
+    }
+    after = rename_keys_in_nested_dict(before, renaming)
+    assert after["db_config"]["user"]
+    assert after["db_config"]["password"]
+    assert frozenset(after["log_settings"]["otel_credentials"]) == frozenset(("user", "password"))
