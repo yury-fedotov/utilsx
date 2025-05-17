@@ -3,7 +3,14 @@ from typing import Literal
 
 import pytest
 
-from utilsx import ceil_to_multiple, check_values_add_up_to_one, double, halve, normalize
+from utilsx import (
+    ceil_to_multiple,
+    check_values_add_up_to_one,
+    double,
+    halve,
+    normalize,
+    safe_divide,
+)
 
 
 @pytest.mark.parametrize(
@@ -109,3 +116,25 @@ def test_check_values_add_up_to_one(
     expected: bool,
 ) -> None:
     assert check_values_add_up_to_one(values, mode) is expected
+
+
+@pytest.mark.parametrize(
+    ("numerator", "denominator", "fallback", "expected"),
+    (
+        (10, 2, 0, 5),  # Normal division
+        (7, 0, 0, 0),  # By zero with zero as fallback
+        (7, 0, -1, -1),  # By zero with custom fallback
+        (0, 3, 0, 0),  # Zero numerator
+        (-6, 2, 0, -3),  # Negative numerator
+        (6, -2, 0, -3),  # Negative denominator
+        (-6, -2, 0, 3),  # Both negative
+        (1e10, 1e5, 0, 1e5),  # Large numbers
+    ),
+)
+def test_safe_divide(
+    numerator: float,
+    denominator: float,
+    fallback: float,
+    expected: float,
+) -> None:
+    assert safe_divide(numerator, denominator, fallback) == pytest.approx(expected)
