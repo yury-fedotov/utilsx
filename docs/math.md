@@ -116,4 +116,4 @@ This helps to:
 
 ### [`halve`][utilsx.halve]
 
-The inverse of [`double`](#doubleutilsxdouble).
+The inverse of [`double`](#double).
