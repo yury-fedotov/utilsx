@@ -6,3 +6,4 @@ Generic utilities for Python projects.
 
 [Constants](constants.md)
 [Dictionaries](dictionaries.md)
+[Math](math.md)

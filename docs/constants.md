@@ -37,6 +37,11 @@ revenue = 2819920021
 revenue_billions = revenue / BILLION
 ```
 
+!!! tip "You can simplify conversion to thousands or millions even further"
+
+    Check out [`convert_number_to_units`](math.md#convert_number_to_units)
+    utility from **math** part of UtilsX for a shorthand function.
+
 !!! tip "The built-in `math` module provides constants like `pi` and `e`"
 
     See full list [here](https://docs.python.org/3/library/math.html#constants).
