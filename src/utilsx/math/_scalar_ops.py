@@ -19,7 +19,7 @@ def halve(x: float) -> float:
 
 
 def double(x: float) -> float:
-    """Divide a number by two: in other words, double it.
+    """Multiply a number by two: in other words, double it.
 
     Args:
         x: The number to multiply by two.

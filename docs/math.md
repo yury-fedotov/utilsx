@@ -43,7 +43,7 @@ print(holdings_proportions)
 
 ### [`safe_divide`][utilsx.safe_divide]
 
-Helps you avoid the `try` / `except ZeroDivisionError` clause when a divisor can potentially be zero.
+Helps you avoid writing a `try` / `except ZeroDivisionError` clause when the divisor might equal zero.
 
 ```py title="return_on_equity.py" hl_lines="1 6"
 from utilsx import safe_divide
@@ -70,3 +70,50 @@ revenue_musd = convert_number_to_units(revenue_usd, "million")
 print(revenue_musd)
 # 132.8902
 ```
+
+## Rounding
+
+### [`ceil_to_multiple`][utilsx.ceil_to_multiple]
+
+Like the built-in [`math.ceil`](https://docs.python.org/3/library/math.html#math.ceil),
+but rounds up to a specified multiple.
+
+Consider a shop with changes only in increments of $5:
+
+``` py title="ceiling_to_multiple.py" hl_lines="1 4"
+from utilsx import ceil_to_multiple
+
+items_cost = 72
+bill_amount = ceil_to_multiple(items_cost, 5)
+
+print(bill_amount)
+# 75
+```
+
+## Scalar operations
+
+### [`double`][utilsx.double]
+
+This function just doubles a number:
+
+``` py title="doubling.py"
+from utilsx import double
+
+standard_price = 100
+vip_price = double(standard_price)
+
+print(vip_price)
+# 200
+```
+
+This performs the same operation as `* 2`.
+
+This helps to:
+
+- Emphasize that the logic doubles the value,
+  rather than multiplying by a number that currently equals 2 but might change.
+- Help avoid typos and lint errors caused by a magic number.
+
+### [`halve`][utilsx.halve]
+
+The inverse of [`double`](#doubleutilsxdouble).

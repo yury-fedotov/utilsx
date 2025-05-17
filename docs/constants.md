@@ -37,7 +37,7 @@ revenue = 2819920021
 revenue_billions = revenue / BILLION
 ```
 
-!!! tip "Conversion to thousands or millions can be even easier"
+!!! tip "You can simplify conversion to thousands or millions even further"
 
     Check out [`convert_number_to_units`](math.md#convert_number_to_units)
     utility from **math** part of UtilsX for a shorthand function.
