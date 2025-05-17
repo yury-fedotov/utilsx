@@ -1,4 +1,6 @@
 site_name: UtilsX
+repo_url: https://github.com/yury-fedotov/utilsx
+repo_name: yury-fedotov/utilsx
 
 theme:
   name: material
