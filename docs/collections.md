@@ -72,7 +72,7 @@ print(duplicates)
 # {"SKU123", "SKU456"}
 ```
 
-### [`is_sequence_of_equal_elements`][utilsx.is_sequence_of_equal_elements]
+### [`is_collection_of_equal_elements`][utilsx.is_collection_of_equal_elements]
 
 Suppose you’re validating a batch of sensor readings to ensure stability—i.e.,
 all readings in a window must be the same before taking action:
@@ -90,11 +90,11 @@ if not all(r == first for r in readings):
 Use UtilsX to express that logic clearly and directly:
 
 ``` py title="with_utilsx.py" hl_lines="1 6"
-from utilsx import is_sequence_of_equal_elements
+from utilsx import is_collection_of_equal_elements
 
 # Sensor readings over a time window
 readings = [42, 42, 42, 42]
 
-if not is_sequence_of_equal_elements(readings):
+if not is_collection_of_equal_elements(readings):
     raise ValueError("Sensor values are unstable")
 ```
