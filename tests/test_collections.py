@@ -1,4 +1,4 @@
-from collections.abc import Iterable, Sequence, Sized
+from collections.abc import Collection, Iterable, Sized
 from typing import Any
 
 import pytest
@@ -24,7 +24,7 @@ from utilsx import (
         ((1, 1.000001), False),
     ),
 )
-def test_is_collection_of_equal_elements(input_: Sequence[Any], expected_output: bool) -> None:
+def test_is_collection_of_equal_elements(input_: Collection[Any], expected_output: bool) -> None:
     assert is_collection_of_equal_elements(input_) == expected_output
 
 
@@ -50,5 +50,5 @@ def test_get_duplicates(input_: Iterable[T], expected_output: frozenset[T]) -> N
         (((1, 2), ()), False),
     ),
 )
-def test_check_equal_length(inputs: Sequence[Sized], expected_output: bool) -> None:
+def test_check_equal_length(inputs: Collection[Sized], expected_output: bool) -> None:
     assert check_equal_length(*inputs) == expected_output
