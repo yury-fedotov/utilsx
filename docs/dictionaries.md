@@ -24,6 +24,7 @@ for location_sales in (north_sales, south_sales):
 print(combined_sales)
 # {"coffee": 200, "cookie": 50, "juice": 40, "banana": 10}
 ```
+
 !!! question "Why avoid this approach?"
 
     Note that the dictionary summation logic takes more than half of the code: 5 lines out of 8.

@@ -2,8 +2,9 @@
 
 Generic utilities for Python projects.
 
-:::utilsx
-
+[Collections](collections.md)
 [Constants](constants.md)
 [Dictionaries](dictionaries.md)
 [Math](math.md)
+
+:::utilsx

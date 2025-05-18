@@ -6,10 +6,29 @@ from typing import Any
 
 from .typevars import T
 
+__all__ = [
+    "check_equal_length",
+    "get_duplicates",
+    "is_sequence_of_equal_elements",
+]
 
-def is_sequence_of_equal_elements(sequence: Sequence[Any]) -> bool:
-    """Check whether all elements in a sequence are equal to each other."""
-    return all(element == sequence[0] for element in sequence)
+
+def check_equal_length(*collections: Sized) -> bool:
+    """Given an arbitrary number of collections, check if they all have equal length.
+
+    Args:
+        *collections: Objects which have length to be checked for its equality.
+
+    Returns:
+        Whether all provided collections have equal length.
+
+    Raises:
+        ValueError: If no collections provided.
+    """
+    if not collections:
+        raise ValueError("No collections to provided to check for lengths equality.")
+    benchmark_length = len(collections[0])
+    return all(len(collection) == benchmark_length for collection in collections)
 
 
 def get_duplicates(iterable: Iterable[T]) -> frozenset[T]:
@@ -24,9 +43,6 @@ def get_duplicates(iterable: Iterable[T]) -> frozenset[T]:
     return frozenset(key for key, value in Counter(iterable).items() if value > 1)
 
 
-def check_equal_length(*collections: Sized) -> bool:
-    """Given an arbitrary number of collections, check if they all have equal length."""
-    if not collections:
-        raise ValueError("No collections to provided to check for lengths equality.")
-    benchmark_length = len(collections[0])
-    return all(len(collection) == benchmark_length for collection in collections)
+def is_sequence_of_equal_elements(sequence: Sequence[Any]) -> bool:
+    """Check whether all elements in a sequence are equal to each other."""
+    return all(element == sequence[0] for element in sequence)
