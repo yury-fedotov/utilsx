@@ -31,3 +31,70 @@ product_stock = [120, 85, 40]
 if not check_equal_length(product_names, product_prices, product_stock):
     raise ValueError("Mismatched product data lengths")
 ```
+
+### [`get_duplicates`][utilsx.get_duplicates]
+
+Imagine you're importing product SKUs from multiple warehouse systems
+and need to identify duplicates before merging the inventory:
+
+``` py title="manual.py" hl_lines="1 10-11"
+from collections import Counter
+
+# Combined list of product SKUs
+skus = [
+    "SKU123", "SKU456", "SKU789",
+    "SKU123", "SKU999", "SKU456"
+]
+
+# Manual duplicate detection
+sku_counts = Counter(skus)
+duplicates = {sku for sku, count in sku_counts.items() if count > 1}
+
+print(duplicates)
+# {"SKU123", "SKU456"}
+```
+
+Use UtilsX to make that much cleaner:
+
+``` py title="with_utilsx.py" hl_lines="1 10"
+from utilsx import get_duplicates
+
+# Combined list of product SKUs
+skus = [
+    "SKU123", "SKU456", "SKU789",
+    "SKU123", "SKU999", "SKU456"
+]
+
+# Identify duplicate SKUs
+duplicates = get_duplicates(skus)
+
+print(duplicates)
+# {"SKU123", "SKU456"}
+```
+
+### [`is_sequence_of_equal_elements`][utilsx.is_sequence_of_equal_elements]
+
+Suppose you’re validating a batch of sensor readings to ensure stability—i.e.,
+all readings in a window must be the same before taking action:
+
+``` py title="manual.py" hl_lines="5-6"
+# Sensor readings over a time window
+readings = [42, 42, 42, 42]
+
+# Manual check for uniformity
+first = readings[0]
+if not all(r == first for r in readings):
+    raise ValueError("Sensor values are unstable")
+```
+
+Use UtilsX to express that logic clearly and directly:
+
+``` py title="with_utilsx.py" hl_lines="1 6"
+from utilsx import is_sequence_of_equal_elements
+
+# Sensor readings over a time window
+readings = [42, 42, 42, 42]
+
+if not is_sequence_of_equal_elements(readings):
+    raise ValueError("Sensor values are unstable")
+```
