@@ -7,7 +7,7 @@ from utilsx import (
     T,
     check_equal_length,
     get_duplicates,
-    is_sequence_of_equal_elements,
+    is_collection_of_equal_elements,
 )
 
 
@@ -24,8 +24,8 @@ from utilsx import (
         ((1, 1.000001), False),
     ),
 )
-def test_is_sequence_of_equal_elements(input_: Sequence[Any], expected_output: bool) -> None:
-    assert is_sequence_of_equal_elements(input_) == expected_output
+def test_is_collection_of_equal_elements(input_: Sequence[Any], expected_output: bool) -> None:
+    assert is_collection_of_equal_elements(input_) == expected_output
 
 
 @pytest.mark.parametrize(

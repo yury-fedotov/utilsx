@@ -1,7 +1,7 @@
 """Utilities for working with collections."""
 
 from collections import Counter
-from collections.abc import Iterable, Sequence, Sized
+from collections.abc import Collection, Iterable, Sized
 from typing import Any
 
 from .typevars import T
@@ -9,7 +9,7 @@ from .typevars import T
 __all__ = [
     "check_equal_length",
     "get_duplicates",
-    "is_sequence_of_equal_elements",
+    "is_collection_of_equal_elements",
 ]
 
 
@@ -43,6 +43,14 @@ def get_duplicates(iterable: Iterable[T]) -> frozenset[T]:
     return frozenset(key for key, value in Counter(iterable).items() if value > 1)
 
 
-def is_sequence_of_equal_elements(sequence: Sequence[Any]) -> bool:
-    """Check whether all elements in a sequence are equal to each other."""
-    return all(element == sequence[0] for element in sequence)
+def is_collection_of_equal_elements(collection: Collection[Any]) -> bool:
+    """Check whether all elements in a collection are equal to each other.
+
+    Args:
+        collection: A collection to check that all elements are equal.
+
+    Returns:
+        Whether all elements are equal to each other.
+    """
+    collection = list(collection)
+    return all(element == collection[0] for element in collection)
