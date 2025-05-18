@@ -5,6 +5,7 @@ Generic utilities for Python projects.
 [Collections](collections.md)
 [Constants](constants.md)
 [Dictionaries](dictionaries.md)
+[Exceptions](exceptions.md)
 [Math](math.md)
 
 :::utilsx

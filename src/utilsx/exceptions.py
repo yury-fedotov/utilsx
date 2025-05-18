@@ -10,6 +10,12 @@ __all__ = [
 ]
 
 
+def prohibit_negative_values(values: Iterable[float]) -> None:
+    """Raise a ValueError if an iterable of numbers has negative values."""
+    if any(value < 0 for value in values):
+        raise ValueError("Negative values are prohibited")
+
+
 def raise_key_error_with_suggestions(
     attempted_key: str,
     existing_keys: Collection[str],
@@ -36,9 +42,3 @@ def raise_key_error_with_suggestions(
         suggestions = ", ".join(close_matches)
         error_msg += f" Did you mean one of these instead: {suggestions}?"
     raise KeyError(error_msg)
-
-
-def prohibit_negative_values(values: Iterable[float]) -> None:
-    """Raise a ValueError if an iterable of numbers has negative values."""
-    if any(value < 0 for value in values):
-        raise ValueError("Negative values are prohibited")
