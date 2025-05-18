@@ -2,8 +2,8 @@
 
 ### [`check_equal_length`][utilsx.check_equal_length]
 
-Consider a scenario where you receive synchronized lists of product information,
-such as names, prices, and stock levels, and need to ensure the data is aligned
+Consider a scenario where you receive synchronized lists of product information -
+such as names, prices, and stock levels - and need to verify that the data aligns
 before further processing:
 
 ``` py title="manual.py" hl_lines="7"
@@ -34,8 +34,8 @@ if not check_equal_length(product_names, product_prices, product_stock):
 
 ### [`get_duplicates`][utilsx.get_duplicates]
 
-Imagine you're importing product SKUs from multiple warehouse systems
-and need to identify duplicates before merging the inventory:
+Imagine importing product SKUs from multiple warehouse systems
+and needing to identify duplicates before merging the inventory:
 
 ``` py title="manual.py" hl_lines="1 10-11"
 from collections import Counter
@@ -74,8 +74,8 @@ print(duplicates)
 
 ### [`is_collection_of_equal_elements`][utilsx.is_collection_of_equal_elements]
 
-Suppose you’re validating a batch of sensor readings to ensure stability—i.e.,
-all readings in a window must be the same before taking action:
+Suppose you check a batch of sensor readings to ensure stability -
+you require all readings in a window to match before taking action:
 
 ``` py title="manual.py" hl_lines="5-6"
 # Sensor readings over a time window
@@ -87,7 +87,7 @@ if not all(r == first for r in readings):
     raise ValueError("Sensor values are unstable")
 ```
 
-Use UtilsX to express that logic clearly and directly:
+Use UtilsX to express that logic nicer:
 
 ``` py title="with_utilsx.py" hl_lines="1 6"
 from utilsx import is_collection_of_equal_elements
