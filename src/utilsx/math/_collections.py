@@ -6,6 +6,7 @@ from typing import Literal
 
 __all__ = [
     "check_values_add_up_to_one",
+    "is_monotonically_growing",
     "normalize",
 ]
 
@@ -37,6 +38,26 @@ def check_values_add_up_to_one(
     sum_of_values = sum(values)
     return any(
         math.isclose(sum_of_values, valid_total, rel_tol=0.001) for valid_total in valid_totals
+    )
+
+
+def is_monotonically_growing(time_series: Sequence[float], multiplier: float) -> bool:
+    """Check whether a time series can be considered monotonically growing.
+
+    To be called so, each next element should be at least ``multiplier`` times bigger than
+    a previous one. Series of less than two elements are considered non-growing.
+
+    Args:
+        time_series: A sequence of numbers.
+        multiplier: How many times bigger each next element should be.
+
+    Returns:
+        True if monotonically growing, False otherwise.
+    """
+    if len(time_series) < 2:  # noqa: PLR2004
+        return False
+    return all(
+        time_series[i + 1] > time_series[i] * multiplier for i in range(len(time_series) - 1)
     )
 
 

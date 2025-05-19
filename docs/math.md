@@ -19,11 +19,51 @@ recipe = {
 }
 
 check_values_add_up_to_one(recipe.values())
-# > True
+# True
 ```
 
 By default, it returns `True` if values add up either to 1 or 100.
 You can control this behavior using the `mode` argument.
+
+### [`is_monotonically_growing`][utilsx.is_monotonically_growing]
+
+Suppose you check memory usage of a long-running data processing job.
+You expect fluctuations, but consistent exponential growth across intervals
+likely signals a memory leak:
+
+```py title="before.py" hl_lines="5-8"
+# Memory usage sampled over time (in MB)
+memory_readings = [200, 210, 225, 250, 290, 350]
+
+# Manual leak detection logic
+multiplier = 1.05  # Acceptable growth rate per interval
+for i in range(len(memory_readings) - 1):
+    if memory_readings[i + 1] <= memory_readings[i] * multiplier:
+        break
+else:
+    raise RuntimeError("Potential memory leak: sustained growth detected")
+```
+
+Manual leak detection logic repeats across systems and lacks clarity.
+The intent "memory grows too steadily" gets buried in low-level detail.
+
+Use UtilsX to make it more concise:
+
+```py title="after.py" hl_lines="1 7"
+from utilsx import is_monotonically_growing
+
+# Memory usage sampled over time (in MB)
+memory_readings = [200, 210, 225, 250, 290, 350]
+
+# Flag if memory grows steadily over time
+if is_monotonically_growing(memory_readings, multiplier=1.05):
+    raise RuntimeError("Potential memory leak: sustained growth detected")
+```
+
+`is_monotonically_growing` captures the intent behind the
+check - guarding against unchecked growth - without relying on verbose loop logic.
+The function works well in monitoring scripts,
+system health checks, and automated alerting pipelines.
 
 ### [`normalize`][utilsx.normalize]
 

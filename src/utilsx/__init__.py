@@ -5,6 +5,5 @@ from .constants import *
 from .dicts import *
 from .exceptions import *
 from .math import *
-from .sequences import *
 from .text import *
 from .typevars import *
