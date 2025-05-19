@@ -7,5 +7,6 @@ Generic utilities for Python projects.
 [Dictionaries](dictionaries.md)
 [Exceptions](exceptions.md)
 [Math](math.md)
+[Text](text.md)
 
 :::utilsx
