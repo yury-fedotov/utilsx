@@ -8,5 +8,6 @@ Generic utilities for Python projects.
 [Exceptions](exceptions.md)
 [Math](math.md)
 [Text](text.md)
+[Typevars](typevars.md)
 
 :::utilsx

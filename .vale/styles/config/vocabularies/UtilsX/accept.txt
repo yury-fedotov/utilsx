@@ -2,3 +2,4 @@
 multiple
 [dD]ownscaling
 SKUs
+Typevars
