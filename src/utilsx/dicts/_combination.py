@@ -22,4 +22,4 @@ def sum_dicts(*dicts: dict[T, float]) -> dict[T, float]:
     for dictionary in dicts:
         for key, value in dictionary.items():
             output[key] += value
-    return output
+    return dict(output)
