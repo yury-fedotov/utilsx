@@ -13,13 +13,13 @@ Generic utilities for Python projects.
 
     [:octicons-arrow-right-24: Getting started](#)
 
--   :fontawesome-brands-markdown:{ .lg .middle } __It's just Markdown__
+-   __🪨 Constants__
 
     ---
 
-    Focus on your content and generate a responsive and searchable static site
+    Common numbers and unit conversion ratios: `MINUTES_IN_HOUR`, `BILLION`...
 
-    [:octicons-arrow-right-24: Reference](#)
+    [:octicons-arrow-right-24: Never hard-code `60` again](constants.md)
 
 -   :material-format-font:{ .lg .middle } __Made to measure__
 
