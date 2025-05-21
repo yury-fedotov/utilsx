@@ -18,15 +18,10 @@ def get_function_names_from_src(src_dir: Path) -> set[str]:
 
     for py_file in src_dir.rglob("*.py"):
         with open(py_file, encoding="utf-8") as f:
-            try:
-                tree = ast.parse(f.read(), filename=str(py_file))
-
-                # Only collect top-level (module-level) function definitions
-                for node in tree.body:
-                    if isinstance(node, ast.FunctionDef):
-                        functions.add(node.name)
-            except SyntaxError as e:
-                logger.warning(f"Skipping {py_file} due to syntax error: {e}")
+            tree = ast.parse(f.read(), filename=str(py_file))
+            for node in tree.body:  # Ignore nested functions
+                if isinstance(node, ast.FunctionDef):
+                    functions.add(node.name)
 
     return functions
 
