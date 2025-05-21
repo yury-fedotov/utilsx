@@ -1,8 +1,12 @@
 """A script to check that all functions defined in the source have a section in docs."""
+
 import ast
+import logging
 import re
 import sys
 from pathlib import Path
+
+logger = logging.getLogger(__name__)
 
 SRC_DIR = Path("../src")
 DOCS_DIR = Path("../docs")
@@ -22,7 +26,7 @@ def get_function_names_from_src(src_dir: Path) -> set[str]:
                     if isinstance(node, ast.FunctionDef):
                         functions.add(node.name)
             except SyntaxError as e:
-                print(f"Skipping {py_file} due to syntax error: {e}")
+                logger.warning(f"Skipping {py_file} due to syntax error: {e}")
 
     return functions
 
@@ -46,12 +50,12 @@ def main() -> None:
     undocumented = sorted(all_functions - documented_functions)
 
     if undocumented:
-        print("The following functions are missing from the documentation:")
+        logger.warning("The following functions are missing from the documentation:")
         for func in undocumented:
-            print(f"- {func}")
+            logger.warning(f"- {func}")
         sys.exit(1)
     else:
-        print("✅ All functions are documented.")
+        logger.warning("✅ All functions are documented.")
 
 
 if __name__ == "__main__":
