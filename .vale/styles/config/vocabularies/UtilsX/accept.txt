@@ -3,3 +3,4 @@ multiple
 [dD]ownscaling
 SKUs
 Typevars
+Kedro
