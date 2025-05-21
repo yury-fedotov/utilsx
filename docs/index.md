@@ -4,14 +4,13 @@ Generic utilities for Python projects.
 
 <div class="grid cards" markdown>
 
--   :material-clock-fast:{ .lg .middle } __Set up in 5 minutes__
+-   __🗄️ Collections__
 
     ---
 
-    Install [`mkdocs-material`](#) with [`pip`](#) and get up
-    and running in minutes
+    One-liners for getting duplicates, checking that all elements are equal, and more
 
-    [:octicons-arrow-right-24: Getting started](#)
+    [:octicons-arrow-right-24: Master collections](collections.md)
 
 -   __🪨 Constants__
 
@@ -21,21 +20,21 @@ Generic utilities for Python projects.
 
     [:octicons-arrow-right-24: Never hard-code `60` again](constants.md)
 
--   :material-format-font:{ .lg .middle } __Made to measure__
+-   __🎨 Decorators__
 
     ---
 
-    Change the colors, fonts, language, icons, logo and more with a few lines
+    Function wrappers for adjusting or enhancing their operations
 
-    [:octicons-arrow-right-24: Customization](#)
+    [:octicons-arrow-right-24: Tweak 3rd party functions](decorators.md)
 
--   :material-scale-balance:{ .lg .middle } __Open Source, MIT__
+-   __📋 Dictionaries__
 
     ---
 
-    Material for MkDocs is licensed under MIT and available on [GitHub]
+    Utilities for common `dict` operations: summation, filtering...
 
-    [:octicons-arrow-right-24: License](#)
+    [:octicons-arrow-right-24: Keep your business logic clean](dictionaries.md)
 
 </div>
 
