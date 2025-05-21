@@ -27,6 +27,7 @@ unit-tests:
 docs-checks:
 	make check-spelling
 	make vale
+	uv run scripts/checks_docs_completeness.py
 	@echo "✅ Docs checks successful!"
 
 # Run Python checks, in CI this should be ran against all supported Python versions
