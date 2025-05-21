@@ -48,6 +48,9 @@ select = [
     "D103", # Allow tests without docstrings
     "PLR2004", # Allow magic values in comparisons
 ]
+"scripts/*" = [
+    "G004" # Allow using f-strings in logging messages
+]
 
 [lint.isort]
 known-first-party = ["utilsx"]
