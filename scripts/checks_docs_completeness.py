@@ -8,8 +8,8 @@ from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
-SRC_DIR = Path("../src")
-DOCS_DIR = Path("../docs")
+SRC_DIR = Path("./src")
+DOCS_DIR = Path("./docs")
 
 
 def get_function_names_from_src(src_dir: Path) -> set[str]:
@@ -32,7 +32,7 @@ def get_function_names_from_src(src_dir: Path) -> set[str]:
 
 
 def get_documented_functions_from_docs(docs_dir: Path) -> set[str]:
-    """Get names of documented functions from the docs files."""
+    """Get the names of documented functions from the documentation files."""
     doc_pattern = re.compile(r"### \[`(\w+)`\]\[utilsx\.\1\]")
     documented = set()
     for md_file in docs_dir.rglob("*.md"):
@@ -46,16 +46,20 @@ def main() -> None:
     """The entrypoint to the script."""
     all_functions = get_function_names_from_src(SRC_DIR)
     documented_functions = get_documented_functions_from_docs(DOCS_DIR)
+    n_functions = len(all_functions)
+
+    if not all_functions or not documented_functions:
+        raise RuntimeError("❌ Parsed no functions.")
 
     undocumented = sorted(all_functions - documented_functions)
 
     if undocumented:
-        logger.warning("The following functions are missing from the documentation:")
+        logger.warning("❌ The following functions are missing documentation:")
         for func in undocumented:
             logger.warning(f"- {func}")
         sys.exit(1)
     else:
-        logger.warning("✅ All functions are documented.")
+        logger.warning(f"✅ All {n_functions} functions are documented.")
 
 
 if __name__ == "__main__":
