@@ -43,6 +43,8 @@ select = [
 "tests/*" = [
     "S101", # Allow assertions in tests
     "D100", # Allow test files without file-level docstring
+    "D101", # Allow test classes without docstrings
+    "D102", # Allow methods of test classes without docstrings
     "D103", # Allow tests without docstrings
     "PLR2004", # Allow magic values in comparisons
 ]
