@@ -11,19 +11,23 @@ vale:
 lint:
 	ruff check --fix
 	ruff format
+	@echo "✅ Python linting successful!"
 
 # Run a static type checker
 type-checking:
 	mypy .
+	@echo "✅ Type check successful!"
 
 # Run all unit tests
 unit-tests:
 	pytest .
+	@echo "✅ Unit tests successful!"
 
 # Run docs checks: spelling and linting, this can be ran against a single Python version
 docs-checks:
 	make check-spelling
 	make vale
+	@echo "✅ Docs checks successful!"
 
 # Run Python checks, in CI this should be ran against all supported Python versions
 python-checks:
@@ -35,6 +39,7 @@ python-checks:
 all-checks:
 	make python-checks
 	make docs-checks
+	@echo "✅ All checks successful!"
 
 # Serve documentation website locally
 serve-docs:
