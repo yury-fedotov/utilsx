@@ -36,6 +36,38 @@ Generic utilities for Python projects.
 
     [:octicons-arrow-right-24: Keep your business logic clean](dictionaries.md)
 
+-   __⛔ Exceptions__
+
+    ---
+
+    Utilities to help enrich exception messages
+
+    [:octicons-arrow-right-24: Fail runs gracefully](dictionaries.md)
+
+-   __🧮 Math__
+
+    ---
+
+    Normalize sequences, check trends, avoid `ZeroDivisionError` in one line
+
+    [:octicons-arrow-right-24: Reduce boilerplate in analytics](math.md)
+
+-   __📝 Text__
+
+    ---
+
+    String utilities missing in the standard library
+
+    [:octicons-arrow-right-24: Become the Shakespeare](text.md)
+
+-   __🇹 `TypeVar`s__
+
+    ---
+
+    Popular type variables for your own generic functions
+
+    [:octicons-arrow-right-24: You're probably using `Any` wrong](text.md)
+
 </div>
 
 [Collections](collections.md)
