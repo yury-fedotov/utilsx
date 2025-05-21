@@ -5,11 +5,13 @@ from functools import wraps
 from typing import Any
 
 __all__ = [
-    "return_element",
+    "narrow_return",
 ]
 
 
-def return_element(index: int) -> Callable[[Callable[..., tuple[Any, ...]]], Callable[..., Any]]:
+def narrow_return(
+    index: int,
+) -> Callable[[Callable[..., tuple[Any, ...]]], Callable[..., Any]]:
     """Makes a function returning a tuple return only the element at the given index.
 
     Implemented as a decorator factory.
