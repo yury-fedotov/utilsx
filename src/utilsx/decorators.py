@@ -23,7 +23,7 @@ def return_element(index: int) -> Callable[[Callable[..., tuple[Any, ...]]], Cal
 
     def decorator(func: Callable[..., tuple[Any, ...]]) -> Callable[..., Any]:
         @wraps(func)
-        def wrapper(*args: Any, **kwargs: Any) -> Any:
+        def wrapper(*args: Any, **kwargs: Any) -> Any:  # noqa: ANN401
             result = func(*args, **kwargs)
             return result[index]
 
