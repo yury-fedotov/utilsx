@@ -69,14 +69,3 @@ Generic utilities for Python projects.
     [:octicons-arrow-right-24: You're probably using `Any` wrong](text.md)
 
 </div>
-
-[Collections](collections.md)
-[Constants](constants.md)
-[Decorators](decorators.md)
-[Dictionaries](dictionaries.md)
-[Exceptions](exceptions.md)
-[Math](math.md)
-[Text](text.md)
-[Typevars](typevars.md)
-
-:::utilsx
