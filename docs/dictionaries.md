@@ -1,5 +1,7 @@
 # 📋 Dictionaries
 
+One-liners for operations you may commonly perform on dictionaries.
+
 ## Combination
 
 ### [`sum_dicts`][utilsx.sum_dicts]

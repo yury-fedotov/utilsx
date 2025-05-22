@@ -1,5 +1,7 @@
 # 🧮 Math
 
+Mathematical utilities that come handy in analytics pieces of your code.
+
 ## Collections
 
 ### [`check_values_add_up_to_one`][utilsx.check_values_add_up_to_one]

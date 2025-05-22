@@ -1,6 +1,6 @@
 # 🪨 Constants
 
-A module with common real-world constants.
+Common real-world constants for you to reuse across your project.
 
 ## Numbers
 
