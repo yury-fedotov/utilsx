@@ -1,5 +1,7 @@
 # 🗄️ Collections
 
+One-liners for operations you may commonly perform on collections.
+
 ### [`check_equal_length`][utilsx.check_equal_length]
 
 Consider a scenario where you receive synchronized lists of product information -

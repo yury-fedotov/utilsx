@@ -1,5 +1,7 @@
 # 🎨 Decorators
 
+Decorators to assist you in adjusting functions' behavior.
+
 ### [`narrow_return`][utilsx.narrow_return]
 
 This decorator modifies a function which returns multiple elements

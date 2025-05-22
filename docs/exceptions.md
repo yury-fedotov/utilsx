@@ -1,5 +1,7 @@
 # ⛔ Exceptions
 
+Utilities to help enrich exception messages.
+
 ### [`prohibit_negative_values`][utilsx.prohibit_negative_values]
 
 Suppose you process a list of daily sales amounts

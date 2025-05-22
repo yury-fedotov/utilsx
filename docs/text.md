@@ -1,5 +1,7 @@
 # 📝 Text
 
+String utilities missing in the standard library, or complementing it nicely.
+
 ### [`add_suffix`][utilsx.add_suffix]
 
 Imagine naming files for multiple versions of a report

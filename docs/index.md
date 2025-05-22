@@ -20,7 +20,7 @@
 
     ---
 
-    Common numbers and unit conversion ratios: `MINUTES_IN_HOUR`, `BILLION`...
+    Common numbers and unit conversion ratios: `MINUTES_IN_HOUR`, `BILLION`, and more
 
     [:octicons-arrow-right-24: Never hard-code `60` again](constants.md)
 
@@ -30,13 +30,13 @@
 
     Function wrappers for adjusting or enhancing their operations
 
-    [:octicons-arrow-right-24: Tweak 3rd party functions](decorators.md)
+    [:octicons-arrow-right-24: Tweak third party functions](decorators.md)
 
 -   __📋 Dictionaries__
 
     ---
 
-    Utilities for common `dict` operations: summation, filtering...
+    Utilities for common `dict` operations: summation, filtering, and more
 
     [:octicons-arrow-right-24: Keep your business logic clean](dictionaries.md)
 
@@ -70,6 +70,6 @@
 
     Popular type variables for your own generic functions
 
-    [:octicons-arrow-right-24: You're probably using `Any` wrong](typevars.md)
+    [:octicons-arrow-right-24: You are probably using `Any` wrong](typevars.md)
 
 </div>
