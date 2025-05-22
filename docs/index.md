@@ -1,6 +1,10 @@
 # UtilsX
 
-Generic utilities for Python projects.
+<div style="text-align: center; font-size: 1.2em; margin: 1em 0;">
+    Generic utilities for Python projects.
+    <br>
+    Declutter code, clarify intents, develop only the logic unique to your software.
+</div>
 
 <div class="grid cards" markdown>
 
@@ -42,7 +46,7 @@ Generic utilities for Python projects.
 
     Utilities to help enrich exception messages
 
-    [:octicons-arrow-right-24: Fail runs gracefully](dictionaries.md)
+    [:octicons-arrow-right-24: Fail runs gracefully](exceptions.md)
 
 -   __🧮 Math__
 
@@ -66,6 +70,6 @@ Generic utilities for Python projects.
 
     Popular type variables for your own generic functions
 
-    [:octicons-arrow-right-24: You're probably using `Any` wrong](text.md)
+    [:octicons-arrow-right-24: You're probably using `Any` wrong](typevars.md)
 
 </div>
