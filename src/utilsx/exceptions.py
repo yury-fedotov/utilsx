@@ -35,6 +35,9 @@ def raise_key_error_with_suggestions(
 
     Raises:
         KeyError: Complemented with close matches, if any.
+
+    Notes:
+        Inspired by dataset name hint implemented in Kedro: https://github.com/kedro-org/kedro
     """
     error_msg = f"{object_name.capitalize()} with {attribute_name} {attempted_key} not found."
     close_matches = get_close_matches(attempted_key, existing_keys)
