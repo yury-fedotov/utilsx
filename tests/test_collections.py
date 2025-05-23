@@ -3,12 +3,12 @@ from typing import Any
 
 import pytest
 
-from utilsx import (
-    T,
+from utilsx.collections import (
     check_equal_length,
     get_duplicates,
     is_collection_of_equal_elements,
 )
+from utilsx.typevars import T
 
 
 @pytest.mark.parametrize(

@@ -4,7 +4,7 @@ Mathematical utilities that come handy in analytics pieces of your code.
 
 ## Collections
 
-### [`check_values_add_up_to_one`][utilsx.check_values_add_up_to_one]
+### [`check_values_add_up_to_one`][utilsx.math.check_values_add_up_to_one]
 
 Useful in data validation to assure that values in a collection add up to 1 or 100.
 
@@ -27,7 +27,7 @@ check_values_add_up_to_one(recipe.values())
 By default, it returns `True` if values add up either to 1 or 100.
 You can control this behavior using the `mode` argument.
 
-### [`is_monotonically_growing`][utilsx.is_monotonically_growing]
+### [`is_monotonically_growing`][utilsx.math.is_monotonically_growing]
 
 Suppose you check memory usage of a long-running data processing job.
 You expect fluctuations, but consistent exponential growth across intervals
@@ -67,7 +67,7 @@ check - guarding against unchecked growth - without relying on verbose loop logi
 The function works well in monitoring scripts,
 system health checks, and automated alerting pipelines.
 
-### [`normalize`][utilsx.normalize]
+### [`normalize`][utilsx.math.normalize]
 
 Helps you scale a sequence of numbers to add up to one, while keeping original relations.
 
@@ -83,7 +83,7 @@ print(holdings_proportions)
 
 ## Division
 
-### [`safe_divide`][utilsx.safe_divide]
+### [`safe_divide`][utilsx.math.safe_divide]
 
 Helps you avoid writing a `try` / `except ZeroDivisionError` clause when the divisor might equal zero.
 
@@ -100,7 +100,7 @@ print(f"Return on equity: {roe:.0%}")
 
 ## Downscaling
 
-### [`convert_number_to_units`][utilsx.convert_number_to_units]
+### [`convert_number_to_units`][utilsx.math.convert_number_to_units]
 
 Convert numbers to thousands / millions.
 
@@ -115,7 +115,7 @@ print(revenue_musd)
 
 ## Rounding
 
-### [`ceil_to_multiple`][utilsx.ceil_to_multiple]
+### [`ceil_to_multiple`][utilsx.math.ceil_to_multiple]
 
 Like the built-in [`math.ceil`](https://docs.python.org/3/library/math.html#math.ceil),
 but rounds up to a specified multiple.
@@ -134,7 +134,7 @@ print(bill_amount)
 
 ## Scalar operations
 
-### [`double`][utilsx.double]
+### [`double`][utilsx.math.double]
 
 This function just doubles a number:
 
@@ -156,6 +156,6 @@ This helps to:
   rather than multiplying by a number that currently equals 2 but might change.
 - Help avoid typos and lint errors caused by a magic number.
 
-### [`halve`][utilsx.halve]
+### [`halve`][utilsx.math.halve]
 
 The inverse of [`double`](#double).

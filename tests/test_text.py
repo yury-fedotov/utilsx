@@ -1,6 +1,6 @@
 import pytest
 
-from utilsx import add_suffix
+from utilsx.text import add_suffix
 
 
 @pytest.mark.parametrize(

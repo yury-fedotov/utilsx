@@ -28,12 +28,13 @@ def get_function_names_from_src(src_dir: Path) -> set[str]:
 
 def get_documented_functions_from_docs(docs_dir: Path) -> set[str]:
     """Get the names of documented functions from the documentation files."""
-    doc_pattern = re.compile(r"### \[`(\w+)`\]\[utilsx\.\1\]")
-    documented = set()
+    doc_pattern = re.compile(r"### \[`(\w+)`\]\[.*\.(\w+)\]")
+    documented: set[str] = set()
     for md_file in docs_dir.rglob("*.md"):
         with open(md_file, encoding="utf-8") as f:
             content = f.read()
-            documented.update(doc_pattern.findall(content))
+            matches = doc_pattern.findall(content)
+            documented.update(name for _, name in matches)
     return documented
 
 

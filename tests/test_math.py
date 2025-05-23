@@ -3,7 +3,7 @@ from typing import Literal
 
 import pytest
 
-from utilsx import (
+from utilsx.math import (
     ceil_to_multiple,
     check_values_add_up_to_one,
     double,
