@@ -1,5 +1,9 @@
 """Utilities for text transformations."""
 
+__all__ = [
+    "add_suffix",
+]
+
 
 def add_suffix(base: str, suffix: str, separator: str = "_") -> str:
     """Add suffix to a base string using a separator.

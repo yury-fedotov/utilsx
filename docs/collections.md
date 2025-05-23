@@ -2,7 +2,7 @@
 
 One-liners for operations you may commonly perform on collections.
 
-### [`check_equal_length`][utilsx.check_equal_length]
+### [`check_equal_length`][utilsx.collections.check_equal_length]
 
 Consider a scenario where you receive synchronized lists of product information -
 such as names, prices, and stock levels - and need to verify that the data aligns
@@ -34,7 +34,7 @@ if not check_equal_length(product_names, product_prices, product_stock):
     raise ValueError("Mismatched product data lengths")
 ```
 
-### [`get_duplicates`][utilsx.get_duplicates]
+### [`get_duplicates`][utilsx.collections.get_duplicates]
 
 Imagine importing product SKUs from multiple warehouse systems
 and needing to identify duplicates before merging the inventory:
@@ -74,7 +74,7 @@ print(duplicates)
 # {"SKU123", "SKU456"}
 ```
 
-### [`is_collection_of_equal_elements`][utilsx.is_collection_of_equal_elements]
+### [`is_collection_of_equal_elements`][utilsx.collections.is_collection_of_equal_elements]
 
 Suppose you check a batch of sensor readings to ensure stability -
 you require all readings in a window to match before taking action:

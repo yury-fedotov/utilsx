@@ -1,4 +1,4 @@
-from utilsx import narrow_return
+from utilsx.decorators import narrow_return
 
 
 class TestNarrowReturn:

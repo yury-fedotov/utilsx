@@ -2,7 +2,7 @@
 
 Utilities to help enrich exception messages.
 
-### [`prohibit_negative_values`][utilsx.prohibit_negative_values]
+### [`prohibit_negative_values`][utilsx.exceptions.prohibit_negative_values]
 
 Suppose you process a list of daily sales amounts
 that must never contain negative values, as they represent revenue:
@@ -33,7 +33,7 @@ prohibit_negative_values(sales)
 With `prohibit_negative_values`, you express your intent directly,
 improving readability and reducing boilerplate in data validation steps.
 
-### [`raise_key_error_with_suggestions`][utilsx.raise_key_error_with_suggestions]
+### [`raise_key_error_with_suggestions`][utilsx.exceptions.raise_key_error_with_suggestions]
 
 Suppose you look up car models in a catalog and want to provide helpful feedback
 when a user queries a missing model, suggesting alternatives to reduce frustration:

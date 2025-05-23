@@ -2,7 +2,7 @@
 
 Decorators to assist you in adjusting functions' behavior.
 
-### [`narrow_return`][utilsx.narrow_return]
+### [`narrow_return`][utilsx.decorators.narrow_return]
 
 This decorator modifies a function which returns multiple elements
 to only return one, at a specified index of the returned tuple.

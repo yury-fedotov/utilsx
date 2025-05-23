@@ -3,7 +3,7 @@ from typing import Any
 
 import pytest
 
-from utilsx import rename_keys_in_nested_dict, sort_by_value, sum_dicts
+from utilsx.dicts import rename_keys_in_nested_dict, sort_by_value, sum_dicts
 
 
 @pytest.mark.parametrize(
