@@ -107,6 +107,9 @@ _COMPONENTS = (
             "ruff.toml",
             ".vale.ini",
             "./.vale/styles/config/**/*.*",
+            "./scripts/*.*",
+            "LICENSE",
+            "uv.lock",
         ),
     ),
 )
