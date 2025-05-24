@@ -18,6 +18,7 @@ from utilsx.functional import identity
 number = identity(3)
 text = identity("apple")
 
+# IDE warns about this guaranteed TypeError
 combo = number + text
 ```
 
