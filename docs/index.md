@@ -48,6 +48,14 @@
 
     [:octicons-arrow-right-24: Fail runs gracefully](exceptions.md)
 
+-   __➰ Functional__
+
+    ---
+
+    Utilities for functional programming, like identity function
+
+    [:octicons-arrow-right-24: Canonical as Haskell](functional.md)
+
 -   __🧮 Math__
 
     ---
