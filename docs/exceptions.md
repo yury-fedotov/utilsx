@@ -21,17 +21,21 @@ wherever you enforce non-negativity, cluttering your code.
 
 Use UtilsX to make this validation clear and reusable:
 
-``` py title="with_utilsx.py" hl_lines="1 6"
+``` py title="with_utilsx.py" hl_lines="1 6-7"
 from utilsx import prohibit_negative_values
 
 # Daily sales data
 sales = [1200.0, 1500.5, -300.0, 1100.0]
 
 prohibit_negative_values(sales)
+# ValueError: Negative values are prohibited
 ```
 
 With `prohibit_negative_values`, you express your intent directly,
 improving readability and reducing boilerplate in data validation steps.
+
+By default, it raises `ValueError("Negative values are prohibited")`, but both
+exception class and the message are configurable through function arguments.
 
 ### [`raise_key_error_with_suggestions`][utilsx.exceptions.raise_key_error_with_suggestions]
 
