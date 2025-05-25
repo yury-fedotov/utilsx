@@ -24,6 +24,16 @@ def test_prohibit_negative_values(values: Iterable[float], should_fail: bool) ->
         prohibit_negative_values(values)
 
 
+def test_prohibit_negative_values_custom_exception() -> None:
+    """Test that a custom exception is being raised if asked so."""
+    with pytest.raises(FileNotFoundError, match="weird"):
+        prohibit_negative_values(
+            values=(-1, 1),
+            exception_class=FileNotFoundError,
+            exception_msg="Let's see if this weird exception class is raised too",
+        )
+
+
 @pytest.mark.parametrize(
     ("attempted_key", "existing_keys", "object_name", "attribute_name", "expected_message"),
     (
