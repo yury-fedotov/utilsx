@@ -10,10 +10,13 @@ __all__ = [
 ]
 
 
-def prohibit_negative_values(values: Iterable[float]) -> None:
+def prohibit_negative_values(
+    values: Iterable[float],
+    exception_msg: str = "Negative values are prohibited",
+) -> None:
     """Raise a ValueError if an iterable of numbers has negative values."""
     if any(value < 0 for value in values):
-        raise ValueError("Negative values are prohibited")
+        raise ValueError(exception_msg)
 
 
 def raise_key_error_with_suggestions(
