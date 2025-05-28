@@ -4,6 +4,8 @@ import math
 from collections.abc import Collection, Sequence
 from typing import Literal
 
+from utilsx.constants import TWO
+
 __all__ = [
     "check_values_add_up_to_one",
     "is_monotonically_growing",
@@ -54,7 +56,7 @@ def is_monotonically_growing(time_series: Sequence[float], multiplier: float) ->
     Returns:
         True if monotonically growing, False otherwise.
     """
-    if len(time_series) < 2:  # noqa: PLR2004
+    if len(time_series) < TWO:
         return False
     return all(
         time_series[i + 1] > time_series[i] * multiplier for i in range(len(time_series) - 1)
