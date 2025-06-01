@@ -4,9 +4,9 @@ Utilities to help enrich exception messages.
 
 ### [`hint_if_extra_uninstalled`][utilsx.exceptions.hint_if_extra_uninstalled]
 
-If you are developing a package with optional dependency groups,
-it is a good practice to hint users what to install in case they unsuccessfully import
-parts of your package without a corresponding extra installed.
+When developing a package with optional extras,
+a good practice involves guiding users on how to install the required dependencies
+if they attempt to import a feature without the corresponding extra.
 
 Check out this example from UtilsX itself, particularly the `utils.pandas` module:
 
@@ -27,11 +27,11 @@ from ._missing import *  # noqa: E402
 
 Note:
 
-1. The import statement at the top changes the imported name to private one,
-so that users don't see `hint_if_extra_uninstalled` when IDE suggests what can be imported
-from `utilsx.pandas`.
-1. Wildcard imports from children modules are located **after** the hint function,
-because we want to first test if a user has `utilsx[pandas]` extra installed or not.
+1. The import statement renames the helper function to a private identifier
+`_hint_if_extra_uninstalled` so that it doesn't appear
+in IDE auto-complete for users of `utilsx.pandas`.
+1. Wildcard imports from submodules follow the hint function
+ensuring the optional `utilsx[pandas]` extra gets validated before exposing public symbols.
 
 ### [`prohibit_negative_values`][utilsx.exceptions.prohibit_negative_values]
 

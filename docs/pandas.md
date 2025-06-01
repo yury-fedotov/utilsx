@@ -4,8 +4,8 @@ Utilities for working with Pandas.
 
 ### [`count_na`][utilsx.pandas.count_na]
 
-Pandas `DataFrame` doesn't provide a property with the total number of missing values
-in the entire dataframe, so we made it a utility function here.
+Pandas DataFrame lacks a built-in property for counting total missing values
+across the entire dataframe, so this utility function provides that capability.
 
 ```py hl_lines="2 5"
 import pandas as pd
@@ -16,5 +16,5 @@ if count_na(df):
     print("Dataframe has missing values!")
 ```
 
-This can be useful in unit testing your data cleaning functions,
-when you need to assure that some missing values are preserved.
+This technique helps during unit tests of data cleaning functions,
+especially when confirming that the logic retains certain missing values.
