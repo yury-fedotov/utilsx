@@ -5,3 +5,4 @@ SKUs
 Typevars
 Kedro
 Declutter
+[dD]ata[fF]rame

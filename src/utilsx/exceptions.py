@@ -2,12 +2,40 @@
 
 from collections.abc import Collection, Iterable
 from difflib import get_close_matches
+from importlib import import_module
 from typing import NoReturn
 
 __all__ = [
+    "hint_if_extra_uninstalled",
     "prohibit_negative_values",
     "raise_key_error_with_suggestions",
 ]
+
+
+def hint_if_extra_uninstalled(
+    required_modules: Iterable[str],
+    extra_name: str,
+    package_name: str,
+) -> None:
+    """Check if an optional dependency group is installed, and hint if not, via ``ImportError``.
+
+    Args:
+        required_modules: Modules which need to be installed in venv for that dependency group.
+        extra_name: Name of an optional dependency group.
+        package_name: Name of the package which provides a given optional dependency group.
+
+    Raises:
+        ImportError: If any of the required modules are not installed.
+    """
+    for module in required_modules:
+        try:
+            import_module(module)
+        except ImportError as e:
+            raise ImportError(
+                f"Optional dependency group '{extra_name}' is required for this feature.\n"
+                f"Add '{package_name}[{extra_name}]' to your requirements list"
+                " and install to virtual environment."
+            ) from e
 
 
 def prohibit_negative_values(

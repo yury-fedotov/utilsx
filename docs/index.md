@@ -78,6 +78,6 @@
 
     Popular type variables for your own generic functions
 
-    [:octicons-arrow-right-24: You are probably using `Any` wrong](typevars.md)
+    [:octicons-arrow-right-24: You probably use `Any` wrong](typevars.md)
 
 </div>
