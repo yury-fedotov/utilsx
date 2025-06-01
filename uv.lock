@@ -901,7 +901,7 @@ wheels = [
 
 [[package]]
 name = "utilsx"
-version = "0.0.0a4"
+version = "0.0.0a5"
 source = { editable = "." }
 
 [package.optional-dependencies]
