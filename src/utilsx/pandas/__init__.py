@@ -1,17 +1,12 @@
 """Utilities for enhancing your Pandas workflows."""
 
-from importlib import import_module
+from utilsx.exceptions import hint_if_extra_uninstalled as _hint_if_extra_uninstalled
 
-_MODULE_DEPENDENCIES = frozenset(("pandas",))
-
-for dependency in _MODULE_DEPENDENCIES:
-    try:
-        import_module(dependency)
-    except ImportError as e:
-        raise ImportError(
-            "Optional dependency group 'pandas' is required for this feature.\n"
-            "Add 'utilsx[pandas]' to your requirements list and install to virtual environment."
-        ) from e
+_hint_if_extra_uninstalled(
+    required_modules=frozenset(("pandas",)),
+    extra_name="pandas",
+    package_name="utilsx",
+)
 
 # This import should be after the dependency group check logic.
 from ._missing import *  # noqa: E402
