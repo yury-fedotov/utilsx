@@ -24,7 +24,7 @@ jobs:
         activate-environment: true
         enable-cache: true
     - name: Install dependencies
-      run: uv sync
+      run: uv sync --extra all
     - name: Run Python checks toolchain
       run: make python-checks
 

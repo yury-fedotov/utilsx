@@ -19,6 +19,9 @@ license-files = ["LICEN[CS]E*"]
 pandas = [
     "pandas>=1.5",
 ]
+all = [
+    "utilsx[pandas]",
+]
 
 [build-system]
 requires = ["hatchling"]

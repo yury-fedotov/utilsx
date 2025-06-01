@@ -905,6 +905,9 @@ version = "0.0.0a4"
 source = { editable = "." }
 
 [package.optional-dependencies]
+all = [
+    { name = "pandas" },
+]
 pandas = [
     { name = "pandas" },
 ]
@@ -925,8 +928,11 @@ docs = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "pandas", marker = "extra == 'pandas'", specifier = ">=1.5" }]
-provides-extras = ["pandas"]
+requires-dist = [
+    { name = "pandas", marker = "extra == 'pandas'", specifier = ">=1.5" },
+    { name = "utilsx", extras = ["pandas"], marker = "extra == 'all'" },
+]
+provides-extras = ["pandas", "all"]
 
 [package.metadata.requires-dev]
 dev = [
