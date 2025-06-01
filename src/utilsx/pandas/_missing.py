@@ -16,5 +16,4 @@ def count_na(df: pd.DataFrame) -> int:
     Returns:
         The number of missing values.
     """
-    count: int = df.isna().sum().sum()
-    return count
+    return int(df.isna().sum().sum())
